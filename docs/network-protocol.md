@@ -10,30 +10,30 @@ December 2024                                                 T. Fabiano
 
 Table of Contents
 
-   1.     Introduction . . . . . . . . . . . . . . . . . . . . . . . . . .
-   2.     Packet Types and Structures  . . . . . . . . . . . . . . . . . .
-   2.1.   Sprite Representation . . .  . . . . . . . . . . . . . . . . . .
-   2.2.   Player Events . . . . . . .  . . . . . . . . . . . . . . . . . .
-   2.3.   Movement Directions .  . . . . . . . . . . . . . . . . . . . . .
+   1     Introduction . . . . . . . . . . . . . . . . . . . . . . . . . .
+   2     Packet Types and Structures  . . . . . . . . . . . . . . . . . .
+   2.1   Sprite Representation . . .  . . . . . . . . . . . . . . . . . .
+   2.2   Player Events . . . . . . .  . . . . . . . . . . . . . . . . . .
+   2.3   Movement Directions .  . . . . . . . . . . . . . . . . . . . . .
    2.4    Player Life Event . . . . . . . . . . . . . . . . . . . . . .  .
-   3.     Serialization and Deserialization . . . . . . . . . . .  . . . .
-   4.     Communication Patterns  . . . . . . . . . . . . . . . .  . . . .
+   3     Serialization and Deserialization . . . . . . . . . . .  . . . .
+   4     Communication Patterns  . . . . . . . . . . . . . . . .  . . . .
    4.1    Sprite Updates . . . . . . . . . . . . . . . . . . . . . . . . .
    4.2    Player Events  . . . . . . . . . . . . . . . . . . . . . . . . .
-   5.     Implementation Notes  . . . . . . . . . . . . . . . . . . . .  .
-   6.     Recommendations for Client/Server Implementation . . . . . . . .
+   5     Implementation Notes  . . . . . . . . . . . . . . . . . . . .  .
+   6     Recommendations for Client/Server Implementation . . . . . . . .
 
 
 
 
-1. Introduction
+1 Introduction
 
 This document describes the network communication protocol for an R-Type
 style multiplayer game, detailing the data transmission mechanisms, packet
 structures, and communication patterns between server and client.
 
 
-2. Packet Types and Structures
+2 Packet Types and Structures
 
 2.1 Sprite Representation
 
@@ -105,7 +105,7 @@ New event type to track player lives:
    • Lives (4 bytes, integer)
 
 
-3. Serialization and Deserialization
+3 Serialization and Deserialization
 
 The BinaryProtocol class provides static methods for converting between
 in-memory structures and network-transmittable byte vectors:
@@ -123,7 +123,7 @@ in-memory structures and network-transmittable byte vectors:
      event
 
 
-4. Communication Patterns
+4 Communication Patterns
 
 4.1 Sprite Updates
 
@@ -143,14 +143,14 @@ in-memory structures and network-transmittable byte vectors:
         ◦ Life updates: Changes in player's remaining lives
 
 
-5. Implementation Notes
+5 Implementation Notes
 
    • Uses little-endian byte order
    • Relies on memcpy() for direct memory manipulation
    • No compression or encryption at the protocol level
 
 
-6. Recommendations for Client/Server Implementation
+6 Recommendations for Client/Server Implementation
    • Implement robust packet validation
    • Handle network latency and packet loss
    • Consider adding sequence numbers for reliable ordering
