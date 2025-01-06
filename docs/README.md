@@ -1,10 +1,10 @@
-# Index
+# 🚀 R-Type: Advanced Networked Multiplayer Game Engine
 
 ## Quick Navigation
 
-* [Developer Guide](developer-guide.md) - Technical documentation for developers
-* [Network Protocol](network-protocol.txt) - Detailed protocol specification
-* [License](license.md) - MIT License
+- [Developer Guide](/docs/developer-guide.md) - Technical documentation for developers
+- [Network Protocol](/docs/network-protocol.txt) - Detailed protocol specification
+- [License](/docs/license.md) - MIT License
 
 ## 🎮 Project Overview
 
@@ -14,10 +14,10 @@
 
 ### Prerequisites
 
-* [CMake](https://cmake.org/) (3.15 or higher)
-* [C++20](https://visualstudio.microsoft.com/fr/vs/features/cplusplus/) compatible compiler
-* [SFML](https://www.sfml-dev.org/index-fr.php) 2.5.1+
-* [Boost::Asio](https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio.html)
+- [CMake](https://cmake.org/) (3.15 or higher)
+- [C++20](https://visualstudio.microsoft.com/fr/vs/features/cplusplus/) compatible compiler
+- [SFML](https://www.sfml-dev.org/index-fr.php) 2.5.1+
+- [Asio](https://think-async.com/Asio/)
 
 ### Building from Source
 
@@ -46,17 +46,19 @@ cd r-type
 ./r-type_client
 ```
 
-### Game Controls
+### Basic Game Controls
 
-* Movement: Arrow Keys
-* Shoot: Z
-* Charged Shot: Hold Z
+- Movement: ZQSD or left Joystick (configurable)
+- Shoot: Space bar or 'A' button
+- Charge Shot: Hold shoot button
+
+Note: all of the settings can be changed in the settings menu
 
 ### Network Configuration
 
-* Default Server: 127.0.0.1
-* Default Port: 4242
-* Max Players: 4
+- Default IP: 127.0.0.1
+- Default Port: 4242
+- Max Players: 4
 
 ## 🔧 Troubleshooting
 
@@ -64,97 +66,98 @@ Common issues and solutions:
 
 ### Build Fails
 
-* Ensure CMake 3.15+ is installed
-* Check SFML dependencies
-* Verify compiler supports C++20
+- Ensure CMake 3.15+ is installed
+- Check SFML dependencies
+- Verify compiler supports C++20
 
 ### Network Issues
 
-* Check firewall settings
-* Verify port 4242 is available
+- Check firewall settings
+- Verify port 4242 is available
 
 ## 🌟 Key Features
 
-* 🌐 **Networked Multiplayer Game Engine**
-* 🧵 **Multi-threaded Server Architecture**
-* 📡 **Binary UDP-based Communication Protocol**
-* 🧩 **Modular Game Engine Design**
-* 💻 **Cross-Platform Compatibility** (Linux and Windows)
-
-## 👥 Authors
-
-* Theo FABIANO
-* Theo MAESTRACCI
-* Matthieu BOUSQUET
-* Thomas VIDAL SAVELLI
+- 🌐 **Networked Multiplayer Game Engine**
+- 🧵 **Multi-threaded Server Architecture**
+- 📡 **Binary UDP-based Communication Protocol**
+- 🧩 **Modular Game Engine Design**
+- 💻 **Cross-Platform Compatibility** (Linux and Windows)
+- 🎵 **Dynamic Audio System** with music and sound effects
 
 ## 🔧 Technical Specifications
 
 ### 🖥️ Server Characteristics
 
-* Multithreaded implementation
-* Authoritative game logic
-* Multiple game instance support
-* Robust error handling and client disconnection management
+- Multithreaded implementation
+- Authoritative game logic
+- Multiple game instance support
+- Robust error handling and client disconnection management
 
 ### 🎮 Client Characteristics
 
-* Graphical rendering
-* Handles player inputs
-* Synchronizes with server game state
+- Graphical rendering
+- Handles player inputs
+- Synchronizes with server game state
 
 ### 🌐 Networking Protocol
 
-* Binary UDP communication protocol
-* Supports multiple game instances
-* Implements network reliability mechanisms
+- Binary UDP communication protocol
+- Supports multiple game instances
+- Implements network reliability mechanisms
 
 ## 📋 Technical Requirements
 
 ### Build Ecosystem
 
-* [CMake](https://cmake.org/) - Cross-platform build system
-* [Build.sh](https://github.com/EpitechPromo2027/B-CPP-500-MAR-5-2-rtype-theo.fabiano/blob/doc/build.sh) - File to execute for building the project
+- [CMake](https://cmake.org/) - Cross-platform build system
+- [Build.sh](https://github.com/EpitechPromo2027/B-CPP-500-MAR-5-2-rtype-theo.fabiano/blob/doc/build.sh) - File to execute for building the project
 
 ### Platforms
 
-* 🐧 **Primary Platform:** Linux
-* 🪟 **Secondary Platform:** Windows
+- 🐧 **Primary Platform:** Linux
+- 🪟 **Secondary Platform:** Windows
 
 ### Libraries
 
-* [SFML](https://www.sfml-dev.org/index-fr.php) - Client rendering
-* [Boost::Asio](https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio.html) - Optional networking
+- [SFML](https://www.sfml-dev.org/index-fr.php) - Client rendering
+- [Asio](https://think-async.com/Asio/) - Optional networking
 
 ## 🏗️ Game Engine Architecture
 
 Implemented using the **Entity-Component-System (ECS)** architectural pattern:
 
-* Decoupled subsystems
-* Modular design
-* Type-safety at compile-time
+- Decoupled subsystems
+- Modular design
+- Type-safety at compile-time
 
 ## 📚 Documentation
 
 ### Required Documentation
 
-* README
-* [Developer\_Documentation](developer-guide.md)
-* Technical Comparative Study
-* [Protocol\_Documentation](network-protocol.md) (RFC-style)
-* Accessibility Considerations
+- README
+- [Developer_Documentation](/docs/developer-guide.md)
+- [Technical Comparative Study](/docs/ComparativeStudy.md)
+- [Protocol_Documentation](network-protocol.txt) (RFC-style)
+- Accessibility Considerations
 
 ## ♿ Accessibility Considerations
 
 Designed to support accessibility for:
 
-* Physical and Motor Disabilities
-* Audio and Visual Disabilities
-* Mental and Cognitive Disabilities
+- Physical and Motor Disabilities
+- Audio and Visual Disabilities
+- Mental and Cognitive Disabilities
+
+## 👥 Authors
+
+- Theo FABIANO
+- Theo MAESTRACCI
+- Matthieu BOUSQUET
+- Thomas VIDAL SAVELLI
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](license.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](/docs/license.md) file for details.
 
 ## 🤝 Contribution
 
@@ -164,6 +167,6 @@ Please refer to the developer documentation for contribution guidelines and codi
 
 For more information, please reach out to the project maintainers.
 
-***
+---
 
 **Inspired by the classic R-Type arcade game, reimagined for the modern era of networked multiplayer gaming.**

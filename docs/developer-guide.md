@@ -3,6 +3,7 @@
 ## 🏗️ Architecture Overview
 
 ### System Architecture
+
 ```mermaid
 graph TD
     A[Client Layer] --> B[Network Layer]
@@ -10,21 +11,32 @@ graph TD
     B --> D[Common Layer]
     
     subgraph Client Layer
-        A1[SFML Renderer]
-        A2[Input Handler]
-        A3[Asset Manager]
+        A1[SFML Renderer] --> A4[AudioManager]
+        A2[Input Handler] --> A5[ColorblindFilter]
+        A3[Asset Manager] --> A6[MainMenu]
+        A7[ClientEngine] --> A1
+        A7 --> A2
+        A7 --> A3
     end
     
     subgraph Server Layer
-        C1[Game Logic]
-        C2[ECS Engine]
-        C3[Instance Manager]
+        C1[Game Logic] --> C4[AssetManager]
+        C2[ECS Engine] --> C5[Registry]
+        C3[Instance Manager] --> C6[GameEngine]
+        C6 --> C7[Components]
+        C7 --> C8[Position/Drawable/Collider/Health/Animation]
     end
     
     subgraph Network Layer
-        B1[UDP Protocol]
-        B2[State Sync]
-        B3[Event Handler]
+        B1[UDP Protocol] --> B4[BinaryProtocol]
+        B2[State Sync] --> B5[Sprite/Event Serialization]
+        B3[Event Handler] --> B6[PlayerEvents/MovementEvents]
+    end
+    
+    subgraph Common Layer
+        D1[Protocol Definitions]
+        D2[Shared Components]
+        D3[Game Constants]
     end
 ```
 
@@ -54,6 +66,7 @@ registry.addComponent<Health>(player, {3});
 ```
 
 ### Network Protocol
+
 As detailed in the RFC document, our protocol uses:
 
 - UDP-based binary communication
@@ -66,6 +79,7 @@ As detailed in the RFC document, our protocol uses:
 ### Adding a New Enemy Type
 
 1. Create component definition:
+
 ```c++
 class EnemyComponent : public Component {
 public:
@@ -77,11 +91,13 @@ public:
 ```
 
 2. Register in game system:
+
 ```c++
 registry.registerComponent<EnemyComponent>();
 ```
 
 3. Add system logic:
+
 ```c++
 registry.addSystem<Position, EnemyComponent>([](Registry& registry,
     SparseArray<Position>& positions,
@@ -93,6 +109,7 @@ registry.addSystem<Position, EnemyComponent>([](Registry& registry,
 ### Creating a New Game Mode
 
 1. Define mode configuration:
+
 ```c++
 struct GameModeConfig {
     bool enableObstacles = true;
@@ -106,6 +123,7 @@ struct GameModeConfig {
 ## 🔧 Build & Development
 
 ### Environment Setup
+
 ```bash
 # Install dependencies (Ubuntu)
 sudo apt-get update
@@ -116,14 +134,47 @@ sudo apt-get install -y cmake g++ libsfml-dev
 ```
 
 ### Project Structure
+
 ```
 src/
-├── client/         # Client implementation
-├── server/         # Server implementation
-│   ├── Engine/     # Game engine core
-│   ├── Game/       # Game logic
-│   └── main.cpp
-└── common/         # Shared code
+├── client/ # Client implementation
+│   ├── assets/ # Game assets
+│   │   ├── fonts/ # Game fonts
+│   │   ├── sounds/ # Sound effects and music
+│   │   ├── shaders/ # GLSL shaders
+│   │   └── sprites/ # Game sprites
+│   ├── src/ # Client source code
+│   │   ├── AudioManager/ # Audio system
+│   │   ├── ClientEngine/ # Main client engine
+│   │   ├── Components/ # UI components
+│   │   │   ├── Button/ # Button component
+│   │   │   ├── Modal/ # Modal window system
+│   │   │   ├── Slider/ # Slider component
+│   │   │   └── TextField/ # Text input component
+│   │   ├── InputManager/ # Input handling
+│   │   ├── MainMenu/ # Menu system
+│   │   └── Utils/ # Utility classes
+│   └── Client.hpp # Main client class
+├── server/ # Server implementation
+│   ├── Engine/ # Game engine core
+│   │   ├── Components/ # ECS components
+│   │   │   ├── Animation.hpp
+│   │   │   ├── Collider.hpp
+│   │   │   ├── Health.hpp
+│   │   │   ├── Position.hpp
+│   │   │   └── Projectile.hpp
+│   │   ├── AssetManager.hpp # Asset management
+│   │   ├── GameEngine.hpp # Core game logic
+│   │   ├── Network.hpp # Network handling
+│   │   └── Registry.hpp # ECS registry
+│   ├── Game/ # Game logic
+│   │   ├── Server.hpp # Server implementation
+│   │   └── Server.cpp # Server implementation
+│   └── main.cpp # Server entry point
+└── common/ # Shared code
+    └── src/ # Common source files
+        ├── Protocol.hpp # Network protocol
+        └── Protocol.cpp # Protocol implementation
 ```
 
 ## 📡 Network Protocol
@@ -135,6 +186,7 @@ src/
 - CHARGED_SHOOT: Charged weapon
 - JOIN: Player connection
 - DESTROY: Entity destruction
+- BOSS_FIGHT: Boss fight starting
 
 ### Packet Structure
 
@@ -154,6 +206,7 @@ struct PlayerEventMove {
 ## 🎮 Game Configuration
 
 ### Constants
+
 ```c++
 const int WINDOW_WIDTH = 1128;
 const int WINDOW_HEIGHT = 672;
@@ -171,6 +224,5 @@ Assets are managed through the AssetManager class with predefined gameplay asset
 - OBSTACLE_SMALL/MEDIUM/LARGE
 - BACKGROUND
 - DEATH
-
 
 For more information, please reach out to the project maintainers.
