@@ -4,7 +4,7 @@
 
 - [Developer Guide](/docs/developer-guide.md) - Technical documentation for developers
 - [Network Protocol](/docs/network-protocol.txt) - Detailed protocol specification
-- [Technical Comparative Study](/docs/ComparativeStudy.md)
+- [Technical Comparative Study](/docs/ComparativeStudy.md) - Detailed comparative study
 - [License](/docs/license.md) - MIT License
 
 ## 🎮 Project Overview
