@@ -3,5 +3,5 @@
 * [Index](README.md)
 * [Developer Guide](developer-guide.md)
 * [Network Protocol Specification](network-protocol.md)
-* [Technical Comparative Study](technical-comparative-study.md)
+* [Technical Comparative Study](ComparativeStudy.md)
 * [License](license.md)
