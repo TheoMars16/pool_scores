@@ -1,2 +1,0 @@
-# Technical Comparative Study
-
