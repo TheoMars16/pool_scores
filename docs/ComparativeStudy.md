@@ -3,9 +3,10 @@
 ## Table of Contents
 
 1. Graphics Library Choice
-2. Networking Library Choice
-3. Build System Selection
-4. Game Architecture Decisions
+2. Network Protocol Choice
+3. Networking Library Choice
+4. Build System Selection
+5. Game Architecture Decisions
 
 ## 1. Graphics Library Choice
 
@@ -32,7 +33,38 @@
 - Simple API for 2D graphics
 - Built-in network module
 
-## 2. Networking Library Choice
+## 2. Network Protocol Choice
+
+### Candidates Considered
+
+- UDP
+- TCP
+- HTTP
+
+### Comparison Matrix
+
+
+| Feature | UDP | TCP | HTTP |
+|---------|------|-------|---------|
+| Ease of use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Performance | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Reliability | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Error Handling | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐⭐ |
+| Connection Overhead | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Security | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Compatibility | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Common Use Cases | Streaming, VoIP, Online games | File transfers, Web browsing | Web browsing, APis |
+
+### Decision: UDP
+
+- Low latency
+- High performance
+- Ideal for real-time games
+- Less overhead
+- Better for unreliable connections
+- Better for real-time games
+
+## 3. Networking Library Choice
 
 ### Candidates Considered
 
@@ -57,7 +89,7 @@
 - Extensive documentation
 - Active maintenance
 
-## 3. Build System Selection
+## 4. Build System Selection
 
 ### Candidates Considered
 
@@ -73,7 +105,7 @@
 - Wide IDE integration
 - Package management capabilities
 
-## 4. Game Architecture Decisions
+## 5. Game Architecture Decisions
 
 ### ECS vs Traditional OOP
 
