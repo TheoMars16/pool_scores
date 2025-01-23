@@ -225,4 +225,53 @@ Assets are managed through the AssetManager class with predefined gameplay asset
 - BACKGROUND
 - DEATH
 
+
+## 🔧 Extending the Game Engine
+
+### Adding New Components
+
+1. Create a new component class in `src/server/Engine/Components/`:
+
+```cpp
+class NewComponent : public Component {
+public:
+    NewComponent(int value) : value(value) {}
+    int value;
+};
+```
+
+2. Register it in GameEngine constructor:
+
+```cpp
+registry.registerComponent<NewComponent>();
+```
+3. Add relevant systems in GameEngine :
+
+```cpp
+registry.addSystem<NewComponent, Position>([](Registry& registry,
+    SparseArray<NewComponent>& components,
+    SparseArray<Position>& positions) {
+    // Implement component behavior
+});
+```
+
+### Adding New Game Features
+
+1. Define new assets in AssetManager :
+
+```cpp
+enum class GameplayAsset {
+    // Add new asset types
+    NEW_ENEMY,
+    NEW_POWERUP
+};
+```
+
+2. Create new components and systems for the feature:
+    - Components in Components
+    - Systems in GameEngine.cpp
+    - Network events in Protocol.hpp
+
+3. Add sprite/asset loading in ClientEngine
+
 For more information, please reach out to the project maintainers.
