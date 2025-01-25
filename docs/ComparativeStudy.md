@@ -1,4 +1,4 @@
-# Technical Comparative Study: R-Type Implementation Choices
+# Technical Comparative Study
 
 ## Table of Contents
 
@@ -12,114 +12,123 @@
 
 ### Candidates Considered
 
-- SFML
-- SDL2
-- OpenGL
-- Raylib
+* SFML
+* SDL2
+* OpenGL
+* Raylib
 
 ### Comparison Matrix
 
-| Feature | SFML | SDL2 | OpenGL | Raylib |
-|---------|------|-------|---------|---------|
-| Ease of use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ |
-| Performance | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| C++ Integration | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-| Documentation | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| Feature         | SFML  | SDL2 | OpenGL | Raylib |
+| --------------- | ----- | ---- | ------ | ------ |
+| Ease of use     | ⭐⭐⭐⭐⭐ | ⭐⭐⭐  | ⭐⭐     | ⭐⭐⭐⭐   |
+| Performance     | ⭐⭐⭐   | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  | ⭐⭐⭐    |
+| C++ Integration | ⭐⭐⭐⭐⭐ | ⭐⭐⭐  | ⭐⭐⭐    | ⭐⭐⭐    |
+| Documentation   | ⭐⭐⭐⭐  | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  | ⭐⭐⭐    |
 
 ### Decision: SFML
 
-- Native C++ support
-- Excellent documentation
-- Simple API for 2D graphics
-- Built-in network module
+* Native C++ support
+* Excellent documentation
+* Simple API for 2D graphics
+* Built-in network module
 
 ## 2. Network Protocol Choice
 
 ### Candidates Considered
 
-- UDP
-- TCP
-- HTTP
+* UDP
+* TCP
+* HTTP
 
 ### Comparison Matrix
 
-
-| Feature | UDP | TCP | HTTP |
-|---------|------|-------|---------|
-| Ease of use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Performance | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| Reliability | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Error Handling | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐⭐ |
-| Connection Overhead | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
-| Security | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Compatibility | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Common Use Cases | Streaming, VoIP, Online games | File transfers, Web browsing | Web browsing, APis |
+| Feature             | UDP                           | TCP                          | HTTP               |
+| ------------------- | ----------------------------- | ---------------------------- | ------------------ |
+| Ease of use         | ⭐⭐⭐⭐⭐                         | ⭐⭐⭐⭐                         | ⭐⭐⭐⭐⭐              |
+| Performance         | ⭐⭐⭐⭐⭐                         | ⭐⭐⭐⭐                         | ⭐⭐⭐                |
+| Reliability         | ⭐⭐                            | ⭐⭐⭐⭐⭐                        | ⭐⭐⭐⭐⭐              |
+| Error Handling      | ⭐⭐                            | ⭐⭐⭐⭐⭐                        | ⭐⭐⭐⭐⭐⭐             |
+| Connection Overhead | ⭐⭐⭐⭐⭐                         | ⭐⭐⭐                          | ⭐⭐⭐⭐               |
+| Security            | ⭐⭐                            | ⭐⭐⭐⭐                         | ⭐⭐⭐⭐⭐              |
+| Compatibility       | ⭐⭐⭐⭐⭐                         | ⭐⭐⭐⭐⭐                        | ⭐⭐⭐⭐⭐              |
+| Common Use Cases    | Streaming, VoIP, Online games | File transfers, Web browsing | Web browsing, APis |
 
 ### Decision: UDP
 
-- Low latency
-- High performance
-- Ideal for real-time games
-- Less overhead
-- Better for unreliable connections
-- Better for real-time games
+* Low latency
+* High performance
+* Ideal for real-time games
+* Less overhead
+* Better for unreliable connections
+* Better for real-time games
 
 ## 3. Networking Library Choice
 
 ### Candidates Considered
 
-- Asio (asio-populate)
-- Raw Sockets
-- ENet
-- RakNet
+* Asio (asio-populate)
+* Raw Sockets
+* ENet
+* RakNet
 
 ### Comparison Matrix
 
-| Feature | Asio | Raw Sockets | ENet | RakNet |
-|---------|------------|-------------|------|--------|
-| Performance | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| Ease of Use | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-| Features | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| Community Support | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Feature           | Asio  | Raw Sockets | ENet | RakNet |
+| ----------------- | ----- | ----------- | ---- | ------ |
+| Performance       | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐       | ⭐⭐⭐⭐ | ⭐⭐⭐⭐   |
+| Ease of Use       | ⭐⭐⭐⭐  | ⭐⭐          | ⭐⭐⭐  | ⭐⭐⭐    |
+| Features          | ⭐⭐⭐⭐⭐ | ⭐⭐          | ⭐⭐⭐⭐ | ⭐⭐⭐⭐   |
+| Community Support | ⭐⭐⭐⭐⭐ | ⭐⭐⭐         | ⭐⭐⭐  | ⭐⭐     |
 
 ### Decision: Asio
 
-- Industry standard
-- Cross-platform support
-- Extensive documentation
-- Active maintenance
+* Industry standard
+* Cross-platform support
+* Extensive documentation
+* Active maintenance
 
 ## 4. Build System Selection
 
 ### Candidates Considered
 
-- CMake
-- Make
-- Meson
-- Conan
+* CMake
+* Make
+* Meson
+* Conan
 
 ### Decision: CMake
 
-- Cross-platform compatibility
-- Modern C++ support
-- Wide IDE integration
-- Package management capabilities
+* Cross-platform compatibility
+* Modern C++ support
+* Wide IDE integration
+* Package management capabilities
 
 ## 5. Game Architecture Decisions
 
 ### ECS vs Traditional OOP
 
-- Better performance for game objects
-- More flexible component system
-- Easier to extend functionality
-- Better cache coherency
+* Better performance for game objects
+* More flexible component system
+* Easier to extend functionality
+* Better cache coherency
 
 ### Binary Protocol vs Text Protocol
 
-- Lower bandwidth usage
-- Faster parsing
-- More efficient for real-time games
-- Better for UDP packets
+* Lower bandwidth usage
+* Faster parsing
+* More efficient for real-time games
+* Better for UDP packets
+
+### 6. Accessibility Considerations
+
+#### Features Integrated
+
+* **Customizable Controls**: Players can remap keys for better accessibility.
+* **Visual Adjustments**: Adjustable contrast and font sizes for better visibility.
+* **Audio Cues**: Directional sounds and alerts for critical events in the game.
+* **Subtitles**: Customizable subtitles for dialogues and sound effects.
+* **Assistive Modes**: Slow-motion or auto-fire options for players with motor impairments.
 
 ## Conclusion
 
