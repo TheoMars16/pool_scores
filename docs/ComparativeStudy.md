@@ -8,30 +8,30 @@
 4. Build System Selection
 5. Game Architecture Decisions
 
-## 1. Graphics Library Choice
+## 1. Technological Choice
 
 ### Candidates Considered
 
-* SFML
-* SDL2
-* OpenGL
-* Raylib
+* C
+* C++
+* C#
+* Python
 
 ### Comparison Matrix
 
-| Feature         | SFML  | SDL2 | OpenGL | Raylib |
-| --------------- | ----- | ---- | ------ | ------ |
-| Ease of use     | ⭐⭐⭐⭐⭐ | ⭐⭐⭐  | ⭐⭐     | ⭐⭐⭐⭐   |
-| Performance     | ⭐⭐⭐   | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  | ⭐⭐⭐    |
-| C++ Integration | ⭐⭐⭐⭐⭐ | ⭐⭐⭐  | ⭐⭐⭐    | ⭐⭐⭐    |
-| Documentation   | ⭐⭐⭐⭐  | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  | ⭐⭐⭐    |
+| Feature           | C    | C++   | C#   | Python |
+| ----------------- | ---- | ----- | ---- | ------ |
+| Ease of use       | ⭐⭐⭐⭐ | ⭐⭐⭐   | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  |
+| Performance       | ⭐⭐⭐  | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐    |
+| Community Support | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐  |
+| Documentation     | ⭐⭐⭐  | ⭐⭐⭐⭐  | ⭐⭐⭐⭐ | ⭐⭐⭐    |
 
-### Decision: SFML
+### Decision: C++
 
-* Native C++ support
+* C++ Mandatory
 * Excellent documentation
-* Simple API for 2D graphics
-* Built-in network module
+* Good link with ASIO & SFML
+* Object oriented programming
 
 ## 2. Network Protocol Choice
 
@@ -122,9 +122,20 @@
 
 ### 6. Accessibility Considerations
 
+### Candidates Considered
+
+* Sensibilité Ajustable
+* Remappage Complet
+* Taille de Texte
+* Contraste Ajustable
+* Filtres Daltonisme
+* Sous-titres
+* Indicateurs Visuels
+* Mode Ralenti
+
 #### Features Integrated
 
-* **Customizable Controls**: Players can remap keys for better accessibility.
+* **Customizable Controls**: Players can remap keys for better accessibility and use a controller.
 * **Visual Adjustments**: Adjustable contrast and font sizes for better visibility.
 * **Audio Cues**: Directional sounds and alerts for critical events in the game.
 * **Subtitles**: Customizable subtitles for dialogues and sound effects.
